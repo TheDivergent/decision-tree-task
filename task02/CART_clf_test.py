@@ -8,7 +8,7 @@ Description:自定义的和sklearn官方的有无区别
 from CART_clf import DecisionTreeClassifier
 from sklearn.tree import DecisionTreeClassifier as dt
 from sklearn.datasets import make_classification
-
+import numpy as np
 
 if __name__ == '__main__':
 
@@ -27,5 +27,5 @@ if __name__ == '__main__':
 
     print(res1==res2)
     ###为什么有一个分类错误呢？
-    print('结果一样的比例：',((res1-res2)<1e-8).mean())
-    print('重要性一致的比例：',((importance1-importance2)<1e-8).mean())
+    print('结果一样的比例：',(np.abs(res1-res2)<1e-8).mean())
+    print('重要性一致的比例：',(np.abs(importance1-importance2)<1e-8).mean())

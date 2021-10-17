@@ -8,6 +8,7 @@ Description:自定义的和sklearn官方的有无区别
 from CART_reg import DecisionTreeRegressor
 from sklearn.tree import DecisionTreeRegressor as dt
 from sklearn.datasets import make_regression
+import numpy as np
 
 
 if __name__ == '__main__':
@@ -24,5 +25,5 @@ if __name__ == '__main__':
     res2=sklearn_cart.predict(X)
     importance2=sklearn_cart.feature_importances_
 
-    print('预测结果一样的比例',((res1-res2)<1e-8).mean())
-    print('特征重要性指数一样的比例',((importance1-importance2)<1e-8).mean())
+    print('预测结果一样的比例',(np.abs(res1-res2)<1e-8).mean())
+    print('特征重要性指数一样的比例',(np.abs(importance1-importance2)<1e-8).mean())

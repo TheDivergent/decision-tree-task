@@ -20,7 +20,7 @@ $y^Tb=2*(-\frac{1}{K-1})+(K-2)*(\frac{1}{(K-1)^2})=-\frac{K}{(K-1)^2}$
 
 3.对公式进行化简，写出K=2时的SAMME算法流程，并与李航《统计学习方法》一书中所述的Adaboost二分类算法对比是否一致。
 
-​	答:对于$L(\beta^{(m)},b^{(m)})=\sum_{i=1}^{n}w_ie^{-\frac{1}{K-1}\beta^{(m)}}+[e^{\frac{1}{(K-1)^2}\beta^{(m)}}-e^{-\frac{1}{K-1}\beta{{(m))}}}]\sum_{i\notin{T}}w_i$​​​​​​​​​​​。则$K=2$​​​​​​​​​​​​​条件下可以化简为，$L(\beta^{(m)},b^{(m)})=\sum_{i=1}^{n}w_ie^{-\beta^{(m)}}+[e^{\beta^{(m)}}-e^{-\beta{{(m))}}}]\sum_{i\notin{T}}w_i$​​​​​​​​​​，$b^{\*(m)}=argmin\sum_{i=1}^nw_iI(i\notin{T})$​​​​ ​​​​,其中$I(x)$​​​​​​​为示性函数​​，满足条件时取1，其他情况下取0.计算得到第m轮$\beta$​​​​​​​的最优值为$\beta^{*(m)}=\frac{1}{2}ln(\frac{1-err}{err})$​​​​​​,其中$err=\frac{\sum_{i\notin{T}}w_i}{\sum_{i=1}^nw_i}$​​​​​​​.概论权重的更新值为$w_i^{new}=\begin{cases} w_ie^{-\frac{1}{2}\beta^{*(m)}} & i\in{T}\\w_ie^{\frac{1}{2}\beta^{*(m)}}&i\notin{T}\end {cases}$​​​​​​.​​​
+​	答:对于$L(\beta^{(m)},b^{(m)})=\sum_{i=1}^{n}w_ie^{-\frac{1}{K-1}\beta^{(m)}}+[e^{\frac{1}{(K-1)^2}\beta^{(m)}}-e^{-\frac{1}{K-1}\beta{{(m))}}}]\sum_{i\notin{T}}w_i$​​​​​​​​​​​​​。则$K=2$​​​​​​​​​​​​​​​条件下可以化简为，$L(\beta^{(m)},b^{(m)})=\sum_{i=1}^{n}w_ie^{-\beta^{(m)}}+[e^{\beta^{(m)}}-e^{-\beta{{(m))}}}]\sum_{i\notin{T}}w_i$​​​​​​​​​​​​，$b^{\*(m)}=argmin\sum_{i=1}^nw_iI(i\notin{T})$​​​​​​ ​​​​,其中$I(x)$​​​​​​​​​为示性函数​​，满足条件时取1，其他情况下取0.计算得到第m轮$\beta$​​​​​​​​​的最优值为$\beta^{\*(m)}=\frac{1}{2}ln(\frac{1-err}{err})$​​​​​​​​,其中$err=\frac{\sum_{i\notin{T}}w_i}{\sum_{i=1}^nw_i}$​​​​​​​​​.概论权重的更新值为$w_i^{new}=\begin{cases} w_ie^{-\frac{1}{2}\beta^{\*(m)}} & i\in{T}\\w_ie^{\frac{1}{2}\beta^{\*(m)}}&i\notin{T}\end {cases}$​​​​​​​​.​​​
 
 经过对比会发现，与李航《统计学习方法》中的一致。
 
@@ -40,14 +40,14 @@ Result：测试样本的预测类别$c(x)$
 2. |  $w_i\leftarrow \frac{1}{n}$
 3. **end**
 4. **for** $m\leftarrow 1$​​​ **to** $M$​​ **do**
-5.  $ G^*\leftarrow argmin_G\sum_{i=1}^nwi\prod_{\{i\notin{T}\}}$​​
+5.  $ G^\*\leftarrow argmin_G\sum_{i=1}^nwi\prod_{\{i\notin{T}\}}$​​​
 6. |    $err^{(m)} \leftarrow \sum_{i=1}^n\frac{w_i\prod_{\{i\notin{T}\}}}{\sum_{i=1}^nw_i}$​
-7. |    $\beta^{*(m)}\leftarrow \frac{1}{2}log\frac{1-err^{(m)}}{err^{(m)}}$​​​​
+7. |    $\beta^{\*(m)}\leftarrow \frac{1}{2}log\frac{1-err^{(m)}}{err^{(m)}}$​​​​​
 8. |    **for** $i\leftarrow1$​​ **to** n **do**
-9. |       | $b^{*(m)}(x_i) \leftarrow G^*(x_i) $
-10. |       |$w_i \leftarrow w_i*exp(-\frac{1}{2}\beta^{*(m)}y_i^Tb^{*(m)}(x_i))$​ 
+9. |       | $b^{\*(m)}(x_i) \leftarrow G^\*(x_i) $​
+10. |       |$w_i \leftarrow w_i*exp(-\frac{1}{2}\beta^{\*(m)}y_i^Tb^{\*(m)}(x_i))$​​ 
 11. |    **end**
-12. |    $f^{(m)}\leftarrow f^{(m-1)}+\beta^{*(m)}b^{*(m)}$
+12. |    $f^{(m)}\leftarrow f^{(m-1)}+\beta^{\*(m)}b^{\*(m)}$​
 13. **end**
 14.  $c(x) \leftarrow argmax_kf^{(M)}(x)$
 
@@ -81,11 +81,11 @@ $h_k^{(m)}=(K-1)lnP_w(s(y)=k\mid{x})-\frac{K-1}{K}\sum_{k=1}^{K}lnP_w(s(y)=k\mid
 
 通过对称约束条件，可得最后一项为0.
 
-则$h_k^{*(m)}=(K-1)[lnP_w(s(y)=k\mid{x})-\frac{1}{K}\sum_{k=1}^{K}lnP_w(s(y)=k\mid{x})]$​
+则$h_k^{\*(m)}=(K-1)[lnP_w(s(y)=k\mid{x})-\frac{1}{K}\sum_{k=1}^{K}lnP_w(s(y)=k\mid{x})]$​​
 
 得证！​
 
-8.算法3的第14行给出了wiwi的更新策略，请说明其合理性。
+8.算法3的第14行给出了wi的更新策略，请说明其合理性。
 
 答：经过上面的等式$\lambda$的求解，我们可以发现一个规律，在每轮的计算中$P_w(s(y)=k\mid{x})exp(-\frac{h^{(m)}_k(x)}{K-1})$是一个定值，（$k\in [1,K]$值都相等），我们令该值为$\lambda$。
 

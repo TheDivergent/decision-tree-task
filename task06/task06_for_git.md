@@ -2,17 +2,17 @@
 
 1.对于均方损失函数和绝对值损失函数，请分别求出模型的初始预测$F_0$​。
 
-答：![image-20211103204410591](C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20211103204410591.png)
+答：![image-20211103204410591](images/image-20211103204410591.png)
 
 ​	可以求得
 
-​		![image-20211103204455253](C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20211103204455253.png)	
+​		![image-20211103204455253](images/image-20211103204455253.png)	
 
-​	![image-20211103204537811](C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20211103204537811.png)
+​	![image-20211103204537811](images/image-20211103204537811.png)
 
 ​	可以求得
 
-​	![image-20211103204619363](C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20211103204619363.png)
+​	![image-20211103204619363](images/image-20211103204619363.png)
 
 2.给定了上一轮的预测结果$F_{m-1}(X_i)$​​和样本标签$y_i$​，请计算使用平方损失时需要拟合的$w_i$​。
 
@@ -42,7 +42,7 @@ $w_i^*=0-\frac{\partial{L}}{\partial{w}}|_{w=0}=r_i$​​​
 
 $$ L(y_i,F_i)=-\sum_{c=1}^Ky_{ci}log\frac{e^{F_{ci}}}{\sum_{c=1}^{K}e^{F_{ci}}}$$
 
-![image-20211103204825000](C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20211103204825000.png)
+![image-20211103204825000](images/image-20211103204825000.png)
 
 其中$\sum_{c=1}^Ky_{ci}=1$,则上式
 
@@ -56,7 +56,7 @@ $$[\frac{e^{F_{1i}}}{1+\sum_{c=1}^{K-1}e^{F_{ci}}},...,\frac{e^{F_{(K-1)i}}}{1+\
 
 对应的损失函数为
 
-![image-20211103204908333](C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20211103204908333.png)
+![image-20211103204908333](images/image-20211103204908333.png)
 
 
 
@@ -68,7 +68,7 @@ $$[\frac{e^{F_{1i}}}{1+\sum_{c=1}^{K-1}e^{F_{ci}}},...,\frac{e^{F_{(K-1)i}}}{1+\
 
 $$L(F_i)=-y_ilog\frac{e^{F_i}}{1+e^{f_i}}-(1-y_i)log\frac{1}{1+e^{F_i}}$$
 
-![image-20211103204951428](C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20211103204951428.png)
+![image-20211103204951428](images/image-20211103204951428.png)
 
 7.设二分类数据集中正样本比例为10%，请计算模型的初始参数$F^{(0)}$​。
 

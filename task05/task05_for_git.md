@@ -22,7 +22,7 @@ $y^Tb=2*(-\frac{1}{K-1})+(K-2)*(\frac{1}{(K-1)^2})=-\frac{K}{(K-1)^2}$
 
 ​	答:对于$L(\beta^{(m)},b^{(m)})=\sum_{i=1}^{n}w_ie^{-\frac{1}{K-1}\beta^{(m)}}+[e^{\frac{1}{(K-1)^2}\beta^{(m)}}-e^{-\frac{1}{K-1}\beta{{(m))}}}]\sum_{i\notin{T}}w_i$。则$K=2$条件下可以化简为，$L(\beta^{(m)},b^{(m)})=\sum_{i=1}^{n}w_ie^{-\beta^{(m)}}+[e^{\beta^{(m)}}-e^{-\beta{{(m))}}}]\sum_{i\notin{T}}w_i$，$b^{\*(m)}=argmin\sum_{i=1}^nw_iI(i\notin{T})$ ,其中$I(x)$为示性函数，满足条件时取1，其他情况下取0.计算得到第m轮$\beta$的最优值为$\beta^{\*(m)}=\frac{1}{2}ln(\frac{1-err}{err})$,其中$err=\frac{\sum_{i\notin{T}}w_i}{\sum_{i=1}^nw_i}$​.概论权重的更新值为
 
-![image-20211103201251994](C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20211103201251994.png).
+![image-20211103201251994](\images\image-20211103201251994.png).
 
 经过对比会发现，与李航《统计学习方法》中的一致。
 

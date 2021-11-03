@@ -4,7 +4,7 @@ $$w_i^{new}=\begin{cases}w_ie^{-\frac{1}{2}\beta^{\*(m)}}, & i\in{T}\\w_ie^{\fra
 
 $\begin{cases}1&1\\2&2\end{cases}$​​
 
-$y^Th^{(m)}(x)=1*{h^{(m)}_{k}(x)}-\frac{1}{K-1}\sum_{i\neq k}^Kh_i^{(m)}(x)=h_k^{(m)}(x)-\frac{1}{K-1}(-h_k^{(m)}(x))=\frac{K}{K-1}h^{(m)}_k(x)$​
+$y^Th^{(m)}(x)=1*h_k^{(m)}(x)-\frac{1}{K-1}{\sum_{i\neq{k}}^Kh_i^{(m)}(x)}=h_k^{(m)}(x)-\frac{1}{K-1}(-h_k^{(m)}(x))=\frac{K}{K-1}h^{(m)}_k(x)$
 
 
 

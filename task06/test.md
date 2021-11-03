@@ -10,5 +10,5 @@ $y^Th^{(m)}(x)=1*{h^{(m)}_{k}(x)}-\frac{1}{K-1}\sum_{i\neq k}^Kh_i^{(m)(x)}=h_k^
 
 ${h^{(m)}_{k}(x)}-\frac{1}{K-1}\sum_{i\neq k}^Kh_i^{(m)(x)}$​
 
-$h_k-\sum_{i\neq{k}}$
+$h_k-\frac{1}{K-1}{\sum_{i\neq{k}}}$​
 
